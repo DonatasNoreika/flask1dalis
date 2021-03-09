@@ -32,5 +32,9 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/<string:title>') # parametruose nurodomas kintamasis (title) ir jo tipas (string)
+def article(title): # kintamąjį būtinai nurodykite ir funkcijos parametruose
+    return render_template('article.html', title=title, data=data) # taip pat ir čia reikia jį perduoti
+
 if __name__ == '__main__':
   app.run(host='127.0.0.1', port=8000, debug=True)
